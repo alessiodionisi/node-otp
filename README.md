@@ -1,5 +1,7 @@
 # Node OTP
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adnsio/node-otp.svg)](https://greenkeeper.io/)
+
 [![Travis](https://img.shields.io/travis/adnsio/node-otp.svg?style=flat-square)](https://travis-ci.org/adnsio/node-otp)
 [![NPMV](https://img.shields.io/npm/v/node-otp.svg?style=flat-square)](https://npmjs.org/package/node-otp)
 
