@@ -1,7 +1,9 @@
 # Node OTP
 
-[![NPMV](https://img.shields.io/npm/v/node-otp.svg?style=flat-square)](https://npmjs.org/package/node-otp)
 [![Travis](https://img.shields.io/travis/adnsio/node-otp.svg?style=flat-square)](https://travis-ci.org/adnsio/node-otp)
+[![NPMV](https://img.shields.io/npm/v/node-otp.svg?style=flat-square)](https://npmjs.org/package/node-otp)
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 Node.js One-Time Password library
 
