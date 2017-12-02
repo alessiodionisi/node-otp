@@ -1,25 +1,22 @@
 {
   "name": "node-otp",
   "description": "Node.js One-Time Password",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "author": {
-    "name": "Alessio Dionisi",
-    "email": "hello@adns.io"
-  },
+  "author": "Alessio Dionisi <hello@adns.io>",
   "repository": "alessiodionisi/node-otp",
   "keywords": [
     "otp",
     "two-factor",
     "rfc4226",
-    "rfc6238"
+    "rfc6238",
+    "typescript"
   ],
   "scripts": {
     "lint": "tslint --project .",
     "test": "jest",
-    "test:coverage": "yarn run test --coverage",
     "build": "tsc"
   },
   "devDependencies": {
