@@ -1,6 +1,6 @@
 # Node OTP
 
-[![Travis](https://img.shields.io/travis/adnsio/node-otp.svg?style=flat-square)](https://travis-ci.org/adnsio/node-otp)
+[![Travis](https://img.shields.io/travis/adnsio/node-otp/master.svg?style=flat-square)](https://travis-ci.org/adnsio/node-otp)
 [![NPMV](https://img.shields.io/npm/v/node-otp.svg?style=flat-square)](https://npmjs.org/package/node-otp)
 [![Greenkeeper](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg?style=flat-square)](https://greenkeeper.io)
 
