@@ -1,6 +1,6 @@
 /src
 /__tests__
-/.idea
+/coverage
 yarn.lock
 tslint.json
 tsconfig.json
