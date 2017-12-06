@@ -1,7 +1,7 @@
 {
   "name": "node-otp",
   "description": "Node.js One-Time Password",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

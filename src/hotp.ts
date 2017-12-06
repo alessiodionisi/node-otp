@@ -8,7 +8,7 @@ export interface Parameters {
   codeDigits?: number,
   addChecksum?: boolean,
   truncationOffset?: number,
-  hmacAlgorithm?: string
+  hmacAlgorithm?: 'sha1' | 'sha256' | 'sha512'
 }
 
 const doubleDigits = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
@@ -24,7 +24,7 @@ const digitsPower = [
   100000000
 ]
 
-function calcChecksum (num: number, digits: number): number {
+function calcChecksum (num: number, digits: number) {
   let doubleDigit = true
   let total = 0
 
@@ -41,7 +41,7 @@ function calcChecksum (num: number, digits: number): number {
   return result
 }
 
-export default function (parameters: Parameters): string {
+export default function (parameters: Parameters) {
   let {
     secret,
     movingFactor,
@@ -58,15 +58,21 @@ export default function (parameters: Parameters): string {
   if (!truncationOffset) truncationOffset = -1
   if (!hmacAlgorithm) hmacAlgorithm = 'sha1'
 
+  let secretLength: number
+  if (hmacAlgorithm === 'sha1') secretLength = 20
+  else if (hmacAlgorithm === 'sha256') secretLength = 32
+  else if (hmacAlgorithm === 'sha512') secretLength = 64
+  else throw new Error('algorithm not supported')
+
   const digits = addChecksum ? codeDigits + 1 : codeDigits
 
-  const text = new Buffer(8)
+  const text = Buffer.alloc(8)
   for (let i = text.length - 1; i >= 0; i--) {
     text[i] = movingFactor & 0xff
     movingFactor >>= 8
   }
 
-  const hash = crypto.createHmac(hmacAlgorithm, secret).update(text).digest()
+  const hash = crypto.createHmac(hmacAlgorithm.toLowerCase(), Buffer.alloc(secretLength, secret)).update(text).digest()
 
   let offset = hash[hash.length - 1] & 0xf
   if (0 <= truncationOffset && truncationOffset < hash.length - 4) offset = truncationOffset
