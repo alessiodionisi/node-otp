@@ -3,11 +3,12 @@
 import * as crypto from 'crypto'
 
 export interface Parameters {
-  secret: string,
+  secret: string | Buffer,
   movingFactor?: number,
   codeDigits?: number,
   addChecksum?: boolean,
-  truncationOffset?: number
+  truncationOffset?: number,
+  hmacAlgorithm?: string
 }
 
 const doubleDigits = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
@@ -46,7 +47,8 @@ export default function (parameters: Parameters): string {
     movingFactor,
     codeDigits,
     addChecksum,
-    truncationOffset
+    truncationOffset,
+    hmacAlgorithm
   } = parameters
 
   if (!secret) throw new Error('no secret value')
@@ -54,19 +56,17 @@ export default function (parameters: Parameters): string {
   if (!codeDigits) codeDigits = 6
   if (!addChecksum) addChecksum = false
   if (!truncationOffset) truncationOffset = -1
+  if (!hmacAlgorithm) hmacAlgorithm = 'sha1'
 
-  let result: string
   const digits = addChecksum ? codeDigits + 1 : codeDigits
 
-  const text = Buffer.alloc(8)
+  const text = new Buffer(8)
   for (let i = text.length - 1; i >= 0; i--) {
     text[i] = movingFactor & 0xff
     movingFactor >>= 8
   }
 
-  const hmac = crypto.createHmac('sha1', secret)
-  hmac.update(text)
-  const hash = Buffer.from(hmac.digest('hex'), 'hex')
+  const hash = crypto.createHmac(hmacAlgorithm, secret).update(text).digest()
 
   let offset = hash[hash.length - 1] & 0xf
   if (0 <= truncationOffset && truncationOffset < hash.length - 4) offset = truncationOffset
@@ -79,7 +79,7 @@ export default function (parameters: Parameters): string {
 
   let otp = binary % digitsPower[codeDigits]
   if (addChecksum) otp = otp * 10 + calcChecksum(otp, codeDigits)
-  result = otp.toString()
+  let result = otp.toString()
   while (result.length < digits) result = '0' + result
   return result
 }

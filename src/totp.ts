@@ -3,12 +3,13 @@
 import hotp from './hotp'
 
 export interface Parameters {
-  secret: string,
+  secret: string | Buffer,
   time?: number,
   timestamp?: number,
   codeDigits?: number,
   addChecksum?: boolean,
-  truncationOffset?: number
+  truncationOffset?: number,
+  hmacAlgorithm?: string
 }
 
 export default function (parameters: Parameters): string {
@@ -18,7 +19,8 @@ export default function (parameters: Parameters): string {
     timestamp,
     codeDigits,
     addChecksum,
-    truncationOffset
+    truncationOffset,
+    hmacAlgorithm
   } = parameters
 
   if (!secret) throw new Error('no secret value')
@@ -32,6 +34,7 @@ export default function (parameters: Parameters): string {
     movingFactor,
     codeDigits,
     addChecksum,
-    truncationOffset
+    truncationOffset,
+    hmacAlgorithm
   })
 }
