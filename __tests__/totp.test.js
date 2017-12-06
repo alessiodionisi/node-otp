@@ -5,7 +5,8 @@ test('totp 59s sha1', function () {
     otp.totp({
       secret: '12345678901234567890',
       time: 59,
-      codeDigits: 8
+      codeDigits: 8,
+      hmacAlgorithm: 'sha1'
     })
   ).toBe('94287082')
 })

@@ -70,4 +70,4 @@ Default value of `initialTime` is 0
 #### `codeDigits?: number`
 Default value of `codeDigits` is 6
 #### `hmacAlgorithm?: 'sha1' | 'sha256' | 'sha512'`
-Default value of `hmacAlgorithm` is sha1
+Default value of `hmacAlgorithm` is sha256
