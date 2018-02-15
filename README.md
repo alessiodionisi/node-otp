@@ -17,13 +17,13 @@ Node.js One-Time Password library
 
 ## Installation
 ```bash
-yarn add final-form
+yarn add node-otp
 ```
 
 or
 
 ```bash
-npm install --save final-form
+npm install --save node-otp
 ```
 
 ## Examples
