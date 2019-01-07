@@ -6,7 +6,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "author": "Alessio Dionisi <hello@adns.io>",
-  "repository": "alessiodionisi/node-otp",
+  "repository": "github:adnsio/node-otp",
   "keywords": [
     "otp",
     "two-factor",
@@ -14,21 +14,21 @@
     "rfc6238",
     "typescript"
   ],
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true
+  },
   "scripts": {
     "lint": "tslint --project .",
     "test": "jest",
     "build": "tsc"
   },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
-  },
   "devDependencies": {
-    "@types/node": "^8.0.53",
-    "jest": "^21.2.1",
-    "ts-node": "^3.3.0",
-    "tslint": "^5.8.0",
-    "tslint-config-standard": "^7.0.0",
-    "typescript": "^2.6.1"
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
   }
 }

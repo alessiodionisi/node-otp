@@ -1,6 +1,7 @@
 /src
 /__tests__
 /coverage
+/.vscode
 yarn.lock
 tslint.json
 tsconfig.json
