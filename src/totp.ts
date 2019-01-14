@@ -3,15 +3,15 @@
 import hotp from './hotp'
 
 export interface Parameters {
-  secret: string | Buffer,
-  step?: number,
-  time?: number,
-  initialTime?: number,
-  codeDigits?: number,
+  secret: string | Buffer
+  step?: number
+  time?: number
+  initialTime?: number
+  codeDigits?: number
   hmacAlgorithm?: 'sha1' | 'sha256' | 'sha512'
 }
 
-export default function (parameters: Parameters) {
+export default function(parameters: Parameters) {
   let {
     secret,
     step,

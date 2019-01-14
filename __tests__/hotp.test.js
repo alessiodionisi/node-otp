@@ -1,6 +1,41 @@
 const otp = require('../lib')
 
-test('hotp 0', function () {
+test('algorithm not supported', function() {
+  expect(() => {
+    otp.hotp({
+      secret: '12345678901234567890',
+      hmacAlgorithm: 'sha522'
+    })
+  }).toThrow()
+})
+
+test('no secret value', function() {
+  expect(() => {
+    otp.hotp({
+      secret: undefined
+    })
+  }).toThrow()
+})
+
+test('truncation offset', function() {
+  expect(
+    otp.hotp({
+      secret: '12345678901234567890',
+      truncationOffset: 1
+    })
+  ).toBe('339280')
+})
+
+test('add checksum', function() {
+  expect(
+    otp.hotp({
+      secret: '12345678901234567890',
+      addChecksum: true
+    })
+  )
+})
+
+test('hotp 0', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890'
@@ -8,7 +43,7 @@ test('hotp 0', function () {
   ).toBe('755224')
 })
 
-test('hotp 1', function () {
+test('hotp 1', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -17,7 +52,7 @@ test('hotp 1', function () {
   ).toBe('287082')
 })
 
-test('hotp 2', function () {
+test('hotp 2', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -26,7 +61,7 @@ test('hotp 2', function () {
   ).toBe('359152')
 })
 
-test('hotp 3', function () {
+test('hotp 3', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -35,7 +70,7 @@ test('hotp 3', function () {
   ).toBe('969429')
 })
 
-test('hotp 4', function () {
+test('hotp 4', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -44,7 +79,7 @@ test('hotp 4', function () {
   ).toBe('338314')
 })
 
-test('hotp 5', function () {
+test('hotp 5', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -53,7 +88,7 @@ test('hotp 5', function () {
   ).toBe('254676')
 })
 
-test('hotp 6', function () {
+test('hotp 6', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -62,7 +97,7 @@ test('hotp 6', function () {
   ).toBe('287922')
 })
 
-test('hotp 7', function () {
+test('hotp 7', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -71,7 +106,7 @@ test('hotp 7', function () {
   ).toBe('162583')
 })
 
-test('hotp 8', function () {
+test('hotp 8', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',
@@ -80,7 +115,7 @@ test('hotp 8', function () {
   ).toBe('399871')
 })
 
-test('hotp 9', function () {
+test('hotp 9', function() {
   expect(
     otp.hotp({
       secret: '12345678901234567890',

@@ -18,16 +18,20 @@
     "coverageDirectory": "./coverage",
     "collectCoverage": true
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "scripts": {
-    "lint": "tslint --project .",
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "prettify": "prettier src/**/*.ts --write && prettier __tests__/**/*.js --write"
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
     "jest": "^23.6.0",
+    "prettier": "^1.15.3",
     "ts-node": "^7.0.1",
-    "tslint": "^5.12.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2"
   }

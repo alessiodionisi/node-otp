@@ -3,11 +3,11 @@
 import * as crypto from 'crypto'
 
 export interface Parameters {
-  secret: string | Buffer,
-  movingFactor?: number,
-  codeDigits?: number,
-  addChecksum?: boolean,
-  truncationOffset?: number,
+  secret: string | Buffer
+  movingFactor?: number
+  codeDigits?: number
+  addChecksum?: boolean
+  truncationOffset?: number
   hmacAlgorithm?: 'sha1' | 'sha256' | 'sha512'
 }
 
@@ -24,7 +24,7 @@ const digitsPower = [
   100000000
 ]
 
-function calcChecksum (num: number, digits: number) {
+function calcChecksum(num: number, digits: number) {
   let doubleDigit = true
   let total = 0
 
@@ -41,7 +41,7 @@ function calcChecksum (num: number, digits: number) {
   return result
 }
 
-export default function (parameters: Parameters) {
+export default function(parameters: Parameters) {
   let {
     secret,
     movingFactor,
@@ -72,10 +72,14 @@ export default function (parameters: Parameters) {
     movingFactor >>= 8
   }
 
-  const hash = crypto.createHmac(hmacAlgorithm.toLowerCase(), Buffer.alloc(secretLength, secret)).update(text).digest()
+  const hash = crypto
+    .createHmac(hmacAlgorithm.toLowerCase(), Buffer.alloc(secretLength, secret))
+    .update(text)
+    .digest()
 
   let offset = hash[hash.length - 1] & 0xf
-  if (0 <= truncationOffset && truncationOffset < hash.length - 4) offset = truncationOffset
+  if (0 <= truncationOffset && truncationOffset < hash.length - 4)
+    offset = truncationOffset
 
   const binary =
     ((hash[offset] & 0x7f) << 24) |
