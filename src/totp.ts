@@ -18,7 +18,7 @@ export default function(parameters: Parameters) {
     time,
     initialTime,
     codeDigits,
-    hmacAlgorithm
+    hmacAlgorithm,
   } = parameters
 
   if (!secret) throw new Error('no secret value')
@@ -33,6 +33,6 @@ export default function(parameters: Parameters) {
     secret,
     movingFactor,
     codeDigits,
-    hmacAlgorithm
+    hmacAlgorithm,
   })
 }

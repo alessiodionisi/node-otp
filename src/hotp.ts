@@ -21,7 +21,7 @@ const digitsPower = [
   100000,
   1000000,
   10000000,
-  100000000
+  100000000,
 ]
 
 function calcChecksum(num: number, digits: number) {
@@ -48,7 +48,7 @@ export default function(parameters: Parameters) {
     codeDigits,
     addChecksum,
     truncationOffset,
-    hmacAlgorithm
+    hmacAlgorithm,
   } = parameters
 
   if (!secret) throw new Error('no secret value')
