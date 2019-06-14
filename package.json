@@ -1,7 +1,7 @@
 {
   "name": "node-otp",
   "description": "Node.js One-Time Password",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "compile": "tsc",
+    "prepublish": "yarn compile",
     "prettify": "prettier --write src/**/*.ts && prettier --write __tests__/**/*.ts"
   },
   "devDependencies": {
