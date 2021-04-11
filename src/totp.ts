@@ -11,7 +11,7 @@ export interface Parameters {
   hmacAlgorithm?: 'sha1' | 'sha256' | 'sha512'
 }
 
-export default function(parameters: Parameters) {
+export default function (parameters: Parameters) {
   let {
     secret,
     step,

@@ -1,8 +1,5 @@
-/src
-/__tests__
-/coverage
-/.vscode
-yarn.lock
-tslint.json
-tsconfig.json
-.travis.yml
+*
+!/lib/*
+!package.json
+!LICENSE
+!README.md

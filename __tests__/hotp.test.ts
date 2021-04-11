@@ -1,6 +1,6 @@
 import { hotp } from '../src'
 
-test('algorithm not supported', function() {
+test('algorithm not supported', function () {
   expect(() => {
     hotp({
       secret: '12345678901234567890',
@@ -10,7 +10,7 @@ test('algorithm not supported', function() {
   }).toThrow()
 })
 
-test('no secret value', function() {
+test('no secret value', function () {
   expect(() => {
     hotp({
       // @ts-ignore
@@ -19,7 +19,7 @@ test('no secret value', function() {
   }).toThrow()
 })
 
-test('truncation offset', function() {
+test('truncation offset', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -28,7 +28,7 @@ test('truncation offset', function() {
   ).toBe('339280')
 })
 
-test('add checksum', function() {
+test('add checksum', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -37,7 +37,7 @@ test('add checksum', function() {
   )
 })
 
-test('hotp 0', function() {
+test('hotp 0', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -45,7 +45,7 @@ test('hotp 0', function() {
   ).toBe('755224')
 })
 
-test('hotp 1', function() {
+test('hotp 1', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -54,7 +54,7 @@ test('hotp 1', function() {
   ).toBe('287082')
 })
 
-test('hotp 2', function() {
+test('hotp 2', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -63,7 +63,7 @@ test('hotp 2', function() {
   ).toBe('359152')
 })
 
-test('hotp 3', function() {
+test('hotp 3', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -72,7 +72,7 @@ test('hotp 3', function() {
   ).toBe('969429')
 })
 
-test('hotp 4', function() {
+test('hotp 4', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -81,7 +81,7 @@ test('hotp 4', function() {
   ).toBe('338314')
 })
 
-test('hotp 5', function() {
+test('hotp 5', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -90,7 +90,7 @@ test('hotp 5', function() {
   ).toBe('254676')
 })
 
-test('hotp 6', function() {
+test('hotp 6', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -99,7 +99,7 @@ test('hotp 6', function() {
   ).toBe('287922')
 })
 
-test('hotp 7', function() {
+test('hotp 7', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -108,7 +108,7 @@ test('hotp 7', function() {
   ).toBe('162583')
 })
 
-test('hotp 8', function() {
+test('hotp 8', function () {
   expect(
     hotp({
       secret: '12345678901234567890',
@@ -117,7 +117,7 @@ test('hotp 8', function() {
   ).toBe('399871')
 })
 
-test('hotp 9', function() {
+test('hotp 9', function () {
   expect(
     hotp({
       secret: '12345678901234567890',

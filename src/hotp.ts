@@ -41,7 +41,7 @@ function calcChecksum(num: number, digits: number) {
   return result
 }
 
-export default function(parameters: Parameters) {
+export default function (parameters: Parameters) {
   let {
     secret,
     movingFactor,

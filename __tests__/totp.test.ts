@@ -1,6 +1,6 @@
 import { totp } from '../src'
 
-test('no secret value', function() {
+test('no secret value', function () {
   expect(() => {
     totp({
       // @ts-ignore
@@ -9,7 +9,7 @@ test('no secret value', function() {
   }).toThrow()
 })
 
-test('default values', function() {
+test('default values', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -20,7 +20,7 @@ test('default values', function() {
   )
 })
 
-test('totp 59s sha1', function() {
+test('totp 59s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -31,7 +31,7 @@ test('totp 59s sha1', function() {
   ).toBe('94287082')
 })
 
-test('totp 59s sha256', function() {
+test('totp 59s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -42,7 +42,7 @@ test('totp 59s sha256', function() {
   ).toBe('46119246')
 })
 
-test('totp 59s sha512', function() {
+test('totp 59s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -53,7 +53,7 @@ test('totp 59s sha512', function() {
   ).toBe('90693936')
 })
 
-test('totp 1111111109s sha1', function() {
+test('totp 1111111109s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -64,7 +64,7 @@ test('totp 1111111109s sha1', function() {
   ).toBe('07081804')
 })
 
-test('totp 1111111109s sha256', function() {
+test('totp 1111111109s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -75,7 +75,7 @@ test('totp 1111111109s sha256', function() {
   ).toBe('68084774')
 })
 
-test('totp 1111111109s sha512', function() {
+test('totp 1111111109s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -86,7 +86,7 @@ test('totp 1111111109s sha512', function() {
   ).toBe('25091201')
 })
 
-test('totp 1111111111s sha1', function() {
+test('totp 1111111111s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -97,7 +97,7 @@ test('totp 1111111111s sha1', function() {
   ).toBe('14050471')
 })
 
-test('totp 1111111111s sha256', function() {
+test('totp 1111111111s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -108,7 +108,7 @@ test('totp 1111111111s sha256', function() {
   ).toBe('67062674')
 })
 
-test('totp 1111111111s sha512', function() {
+test('totp 1111111111s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -119,7 +119,7 @@ test('totp 1111111111s sha512', function() {
   ).toBe('99943326')
 })
 
-test('totp 1234567890s sha1', function() {
+test('totp 1234567890s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -130,7 +130,7 @@ test('totp 1234567890s sha1', function() {
   ).toBe('89005924')
 })
 
-test('totp 1234567890s sha256', function() {
+test('totp 1234567890s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -141,7 +141,7 @@ test('totp 1234567890s sha256', function() {
   ).toBe('91819424')
 })
 
-test('totp 1234567890s sha512', function() {
+test('totp 1234567890s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -152,7 +152,7 @@ test('totp 1234567890s sha512', function() {
   ).toBe('93441116')
 })
 
-test('totp 2000000000s sha1', function() {
+test('totp 2000000000s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -163,7 +163,7 @@ test('totp 2000000000s sha1', function() {
   ).toBe('69279037')
 })
 
-test('totp 2000000000s sha256', function() {
+test('totp 2000000000s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -174,7 +174,7 @@ test('totp 2000000000s sha256', function() {
   ).toBe('90698825')
 })
 
-test('totp 2000000000s sha512', function() {
+test('totp 2000000000s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -185,7 +185,7 @@ test('totp 2000000000s sha512', function() {
   ).toBe('38618901')
 })
 
-test('totp 20000000000s sha1', function() {
+test('totp 20000000000s sha1', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -196,7 +196,7 @@ test('totp 20000000000s sha1', function() {
   ).toBe('65353130')
 })
 
-test('totp 20000000000s sha256', function() {
+test('totp 20000000000s sha256', function () {
   expect(
     totp({
       secret: '12345678901234567890',
@@ -207,7 +207,7 @@ test('totp 20000000000s sha256', function() {
   ).toBe('77737706')
 })
 
-test('totp 20000000000s sha512', function() {
+test('totp 20000000000s sha512', function () {
   expect(
     totp({
       secret: '12345678901234567890',
